@@ -13,3 +13,20 @@ in=16'h3f0a;sel=4'h0;
 #5 $finish;
 end
 endmodule 
+
+second test bench
+
+module test;
+reg [3:0]in1,in0;
+reg s;
+wire [3:0]f;
+mux21 dut(in1,in0,s,f);
+initial
+begin
+$monitor($time,"s=%b,in1=%b,in0=%b,f=%b",s,in1,in0,f);
+in1=4'b0101;in0=4'b1010;
+s=0;
+#5 s=1;
+#5 $stop;
+end
+endmodule
